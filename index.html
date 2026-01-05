@@ -18,13 +18,6 @@
     <meta property="og:description" content="Scale your business with 10,000+ AI-enhanced n8n workflows. Enterprise-grade, secure, and production-ready.">
     <meta property="og:image" content="https://skyscope-sentinel.github.io/automation-empire-store/assets/og-image.png">
 
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://skyscope-sentinel.github.io/automation-empire-store/">
-    <meta property="twitter:title" content="Automation Empire | Premium n8n Workflows">
-    <meta property="twitter:description" content="Scale your business with 10,000+ AI-enhanced n8n workflows. Enterprise-grade, secure, and production-ready.">
-    <meta property="twitter:image" content="https://skyscope-sentinel.github.io/automation-empire-store/assets/og-image.png">
-
     <!-- JSON-LD Structured Data -->
     <script type="application/ld+json">
     {
@@ -36,11 +29,6 @@
       "founder": {
         "@type": "Person",
         "name": "Miss Casey Jay Topojani"
-      },
-      "offers": {
-        "@type": "Offer",
-        "priceCurrency": "USD",
-        "availability": "https://schema.org/InStock"
       }
     }
     </script>
@@ -53,13 +41,17 @@
     <style>
         :root {
             --premium-gradient: linear-gradient(45deg, #ff00cc, #3333ff);
+            --elite-gradient: linear-gradient(45deg, #ffd700, #ff8c00);
         }
         body { font-family: 'Inter', sans-serif; background-color: #0a0a0a; color: #fff; overflow-x: hidden; }
         #canvas-basic { position: fixed; width: 100%; height: 100%; top: 0; left: 0; z-index: -1; }
         .navbar { background: rgba(0,0,0,0.7) !important; backdrop-filter: blur(15px); border-bottom: 1px solid rgba(255,255,255,0.1); }
         .card { background: rgba(255,255,255,0.03); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.1); border-radius: 20px; transition: all 0.4s ease; color: #fff; height: 100%; }
         .card:hover { transform: translateY(-10px); border-color: #ff00cc; box-shadow: 0 20px 40px rgba(255,0,204,0.2); }
+        .card.is-elite { border-color: #ffd700; box-shadow: 0 0 30px rgba(255,215,0,0.2); }
+        .card.is-elite:hover { border-color: #ff8c00; box-shadow: 0 20px 50px rgba(255,140,0,0.4); }
         .button.is-premium { background: var(--premium-gradient); border: none; color: white; font-weight: 700; border-radius: 50px; }
+        .button.is-elite { background: var(--elite-gradient); border: none; color: black; font-weight: 900; border-radius: 50px; }
         .hero-title { font-size: 4rem; font-weight: 900; background: var(--premium-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
     </style>
 </head>
@@ -75,6 +67,7 @@
         <div class="navbar-menu">
             <div class="navbar-end">
                 <a class="navbar-item" href="#catalog">Catalog</a>
+                <a class="navbar-item" href="#elite">Elite Tier</a>
                 <a class="navbar-item" href="#bundles">Master Suites</a>
                 <div class="navbar-item"><a class="button is-premium">Join the Empire</a></div>
             </div>
@@ -86,11 +79,33 @@
     <div class="hero-body">
         <div class="container has-text-centered">
             <h1 class="hero-title">Automation Empire</h1>
-            <h2 class="subtitle is-3 has-text-white">10,000+ Premium n8n Workflows for the Modern Enterprise</h2>
+            <h2 id="dynamic-subtitle" class="subtitle is-3 has-text-white">10,000+ Premium n8n Workflows for the Modern Enterprise</h2>
             <p class="is-size-5 mt-4">Exceeding expectations. Automating the impossible. From startups to global bodies.</p>
             <div class="buttons is-centered mt-6">
-                <a href="#catalog" class="button is-premium is-large">Explore Catalog</a>
-                <a href="#bundles" class="button is-light is-large is-outlined">View Master Suites</a>
+                <a href="#elite" class="button is-elite is-large">Access Elite Tier</a>
+                <a href="#bundles" class="button is-premium is-large">View Master Suites</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="elite" class="section">
+    <div class="container">
+        <h3 class="title is-2 has-text-centered mb-6" style="color: #ffd700;">👑 Elite Tier: The Omni-Tool</h3>
+        <div class="columns is-centered">
+            <div class="column is-8">
+                <div class="card is-elite">
+                    <div class="card-content has-text-centered">
+                        <span class="tag is-warning mb-2">Infinite Capability</span>
+                        <p class="title is-3 has-text-white">Empire Omni-Tool (Ultimate MCP Integration)</p>
+                        <p class="subtitle is-5 has-text-grey-light">One Workflow. 50+ Tools. Unlimited Power.</p>
+                        <div class="content is-size-5">
+                            The crown jewel of the Empire. Integrates the **Ultimate MCP Server** to provide unified access to Web Search, File Processing, Code Execution, and dozens of APIs. AI-driven orchestration for mission-critical enterprise tasks.
+                        </div>
+                        <div class="is-size-3 has-text-weight-bold mb-4">$599.00</div>
+                        <div id="paypal-button-omni" class="mt-4"></div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -99,9 +114,9 @@
 <section id="bundles" class="section">
     <div class="container">
         <h3 class="title is-2 has-text-centered mb-6">Premium Master Suite Collections</h3>
-        <div class="columns is-multiline">
+        <div class="columns is-multiline" id="bundle-container">
             <!-- E-commerce Master Suite -->
-            <div class="column is-4">
+            <div class="column is-4 bundle-card" data-category="ecommerce">
                 <div class="card">
                     <div class="card-content">
                         <span class="tag is-premium mb-2">Best Seller</span>
@@ -115,7 +130,7 @@
                 </div>
             </div>
             <!-- Sales & Lead Gen Master Suite -->
-            <div class="column is-4">
+            <div class="column is-4 bundle-card" data-category="sales">
                 <div class="card">
                     <div class="card-content">
                         <span class="tag is-info mb-2">High Growth</span>
@@ -129,7 +144,7 @@
                 </div>
             </div>
             <!-- Enterprise Operations Suite -->
-            <div class="column is-4">
+            <div class="column is-4 bundle-card" data-category="enterprise">
                 <div class="card">
                     <div class="card-content">
                         <span class="tag is-warning mb-2">Enterprise Grade</span>
@@ -161,6 +176,22 @@
         states : { "default-state": { gradients: [['#0a0a0a', '#1a1a1a'], ['#1a1a1a', '#0a0a0a']] } }
     });
 
+    // Smart Style Logic
+    const urlParams = new URLSearchParams(window.location.search);
+    const industry = urlParams.get('industry');
+    if (industry) {
+        const subtitle = document.getElementById('dynamic-subtitle');
+        subtitle.innerText = `The Future of ${industry.charAt(0).toUpperCase() + industry.slice(1)} Efficiency`;
+        
+        // Reorder bundles based on industry
+        const container = document.getElementById('bundle-container');
+        const cards = Array.from(container.getElementsByClassName('bundle-card'));
+        const relevantCard = cards.find(c => c.dataset.category === industry);
+        if (relevantCard) {
+            container.prepend(relevantCard);
+        }
+    }
+
     // PayPal Buttons
     function initPayPal(id, amount, desc) {
         paypal.Buttons({
@@ -169,11 +200,12 @@
                 purchase_units: [{ description: desc, amount: { currency_code: 'USD', value: amount } }]
             }),
             onApprove: (data, actions) => actions.order.capture().then(details => {
-                alert('Transaction completed by ' + details.payer.name.given_name + '! Your Master Suite is ready.');
+                alert('Transaction completed by ' + details.payer.name.given_name + '! Your Elite Tool is ready.');
             })
         }).render(id);
     }
 
+    initPayPal('#paypal-button-omni', '599.00', 'Empire Omni-Tool (Ultimate MCP Integration)');
     initPayPal('#paypal-button-ecommerce', '599.00', 'E-commerce Master Suite (6-Pack)');
     initPayPal('#paypal-button-sales', '699.00', 'Sales & Lead Gen Suite (6-Pack)');
     initPayPal('#paypal-button-enterprise', '899.00', 'Enterprise Ops Suite (6-Pack)');
