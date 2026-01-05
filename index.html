@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <title>Automation Empire | Premium n8n Workflows & AI Automations</title>
+    <meta name="description" content="The world's largest library of 10,000+ premium, AI-enhanced n8n workflows. Enterprise-grade automations for Shopify, Lead Gen, Finance, and more.">
+    <meta name="keywords" content="n8n workflows, automation templates, AI business automation, Shopify automation, lead generation, enterprise automation, n8n templates, digital transformation">
+    <meta name="author" content="Miss Casey Jay Topojani">
+    <link rel="canonical" href="https://skyscope-sentinel.github.io/automation-empire-store/">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://skyscope-sentinel.github.io/automation-empire-store/">
+    <meta property="og:title" content="Automation Empire | Premium n8n Workflows">
+    <meta property="og:description" content="Scale your business with 10,000+ AI-enhanced n8n workflows. Enterprise-grade, secure, and production-ready.">
+    <meta property="og:image" content="https://skyscope-sentinel.github.io/automation-empire-store/assets/og-image.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://skyscope-sentinel.github.io/automation-empire-store/">
+    <meta property="twitter:title" content="Automation Empire | Premium n8n Workflows">
+    <meta property="twitter:description" content="Scale your business with 10,000+ AI-enhanced n8n workflows. Enterprise-grade, secure, and production-ready.">
+    <meta property="twitter:image" content="https://skyscope-sentinel.github.io/automation-empire-store/assets/og-image.png">
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Store",
+      "name": "Automation Empire",
+      "description": "Premium n8n Workflow Storefront",
+      "url": "https://skyscope-sentinel.github.io/automation-empire-store/",
+      "founder": {
+        "@type": "Person",
+        "name": "Miss Casey Jay Topojani"
+      },
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock"
+      }
+    }
+    </script>
+
+    <!-- Styles & Scripts -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/granim/2.0.0/granim.min.js"></script>
+    <script src="https://www.paypal.com/sdk/js?client-id=AZJPqWnjzXMQyNH0zdydmoVx2k9R5nVYRHcYWU-KtBjzf6DuP3Q1XKrEJhOvvubtptfTqbCstF54oY46&currency=USD"></script>
+    
+    <style>
+        :root {
+            --premium-gradient: linear-gradient(45deg, #ff00cc, #3333ff);
+        }
+        body { font-family: 'Inter', sans-serif; background-color: #0a0a0a; color: #fff; overflow-x: hidden; }
+        #canvas-basic { position: fixed; width: 100%; height: 100%; top: 0; left: 0; z-index: -1; }
+        .navbar { background: rgba(0,0,0,0.7) !important; backdrop-filter: blur(15px); border-bottom: 1px solid rgba(255,255,255,0.1); }
+        .card { background: rgba(255,255,255,0.03); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.1); border-radius: 20px; transition: all 0.4s ease; color: #fff; height: 100%; }
+        .card:hover { transform: translateY(-10px); border-color: #ff00cc; box-shadow: 0 20px 40px rgba(255,0,204,0.2); }
+        .button.is-premium { background: var(--premium-gradient); border: none; color: white; font-weight: 700; border-radius: 50px; }
+        .hero-title { font-size: 4rem; font-weight: 900; background: var(--premium-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    </style>
+</head>
+<body>
+
+<canvas id="canvas-basic"></canvas>
+
+<nav class="navbar is-fixed-top">
+    <div class="container">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="#"><strong>AUTOMATION EMPIRE</strong></a>
+        </div>
+        <div class="navbar-menu">
+            <div class="navbar-end">
+                <a class="navbar-item" href="#catalog">Catalog</a>
+                <a class="navbar-item" href="#bundles">Master Suites</a>
+                <div class="navbar-item"><a class="button is-premium">Join the Empire</a></div>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<section class="hero is-fullheight">
+    <div class="hero-body">
+        <div class="container has-text-centered">
+            <h1 class="hero-title">Automation Empire</h1>
+            <h2 class="subtitle is-3 has-text-white">10,000+ Premium n8n Workflows for the Modern Enterprise</h2>
+            <p class="is-size-5 mt-4">Exceeding expectations. Automating the impossible. From startups to global bodies.</p>
+            <div class="buttons is-centered mt-6">
+                <a href="#catalog" class="button is-premium is-large">Explore Catalog</a>
+                <a href="#bundles" class="button is-light is-large is-outlined">View Master Suites</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="bundles" class="section">
+    <div class="container">
+        <h3 class="title is-2 has-text-centered mb-6">Premium Master Suite Collections</h3>
+        <div class="columns is-multiline">
+            <!-- E-commerce Master Suite -->
+            <div class="column is-4">
+                <div class="card">
+                    <div class="card-content">
+                        <span class="tag is-premium mb-2">Best Seller</span>
+                        <p class="title is-4">E-commerce Master Suite</p>
+                        <p class="subtitle is-6">6-Pack AI-Powered Engines</p>
+                        <div class="content">
+                            A full premium automation suite for Shopify, Amazon, and Etsy. Includes AI marketing, inventory forecasting, and customer support.
+                        </div>
+                        <div id="paypal-button-ecommerce" class="mt-4"></div>
+                    </div>
+                </div>
+            </div>
+            <!-- Sales & Lead Gen Master Suite -->
+            <div class="column is-4">
+                <div class="card">
+                    <div class="card-content">
+                        <span class="tag is-info mb-2">High Growth</span>
+                        <p class="title is-4">Sales & Lead Gen Suite</p>
+                        <p class="subtitle is-6">6-Pack Growth Engines</p>
+                        <div class="content">
+                            Automate your entire sales funnel. Scrape leads, verify emails, and send personalized AI outreach at scale.
+                        </div>
+                        <div id="paypal-button-sales" class="mt-4"></div>
+                    </div>
+                </div>
+            </div>
+            <!-- Enterprise Operations Suite -->
+            <div class="column is-4">
+                <div class="card">
+                    <div class="card-content">
+                        <span class="tag is-warning mb-2">Enterprise Grade</span>
+                        <p class="title is-4">Enterprise Ops Suite</p>
+                        <p class="subtitle is-6">6-Pack Efficiency Engines</p>
+                        <div class="content">
+                            Designed for large-scale operations. Includes financial automation, HR onboarding, and cross-platform data syncing.
+                        </div>
+                        <div id="paypal-button-enterprise" class="mt-4"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer class="footer has-text-centered">
+    <div class="container">
+        <p><strong>Automation Empire</strong> by Miss Casey Jay Topojani.</p>
+        <p>Exceeding expectations since 2026. All rights reserved.</p>
+    </div>
+</footer>
+
+<script>
+    // Granim Background
+    new Granim({
+        element: '#canvas-basic',
+        direction: 'diagonal',
+        states : { "default-state": { gradients: [['#0a0a0a', '#1a1a1a'], ['#1a1a1a', '#0a0a0a']] } }
+    });
+
+    // PayPal Buttons
+    function initPayPal(id, amount, desc) {
+        paypal.Buttons({
+            style: { shape: 'pill', color: 'blue', layout: 'vertical', label: 'buynow' },
+            createOrder: (data, actions) => actions.order.create({
+                purchase_units: [{ description: desc, amount: { currency_code: 'USD', value: amount } }]
+            }),
+            onApprove: (data, actions) => actions.order.capture().then(details => {
+                alert('Transaction completed by ' + details.payer.name.given_name + '! Your Master Suite is ready.');
+            })
+        }).render(id);
+    }
+
+    initPayPal('#paypal-button-ecommerce', '599.00', 'E-commerce Master Suite (6-Pack)');
+    initPayPal('#paypal-button-sales', '699.00', 'Sales & Lead Gen Suite (6-Pack)');
+    initPayPal('#paypal-button-enterprise', '899.00', 'Enterprise Ops Suite (6-Pack)');
+</script>
+
+</body>
+</html>
