@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://skyscope-sentinel.github.io/automation-empire-store/sitemap.xml
