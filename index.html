@@ -3,11 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Automation Empire | Sovereign Agentic Systems</title>
+    <title>Automation Empire | Premium n8n Marketplace</title>
     
     <!-- SEO & Meta -->
     <meta name="description" content="The world's premier destination for 10,000+ premium, AI-enhanced n8n workflows. Enterprise-grade systems for the autonomous future.">
-    <meta name="keywords" content="n8n workflows, agentic AI, business automation, enterprise systems, MCP server, automation empire">
     
     <!-- Styles & Fonts -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
@@ -18,9 +17,9 @@
 
     <style>
         :root {
-            --primary: #00f2ff;
-            --secondary: #7000ff;
-            --accent: #ff00d4;
+            --teal: #00f2ff;
+            --blue: #3333ff;
+            --pink: #ff00d4;
             --bg: #030303;
             --glass: rgba(255, 255, 255, 0.03);
             --glass-border: rgba(255, 255, 255, 0.08);
@@ -29,62 +28,113 @@
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { background-color: var(--bg); color: var(--text); font-family: 'Plus Jakarta Sans', sans-serif; line-height: 1.6; overflow-x: hidden; }
-        #canvas-bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; opacity: 0.4; }
+        #canvas-bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; opacity: 0.6; }
 
         /* Glassmorphism Navigation */
         .glass-nav {
-            background: rgba(3, 3, 3, 0.7);
-            backdrop-filter: blur(20px);
+            background: rgba(3, 3, 3, 0.8);
+            backdrop-filter: blur(25px);
             border-bottom: 1px solid var(--glass-border);
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
-            padding: 1.2rem 0;
+            padding: 1.5rem 0;
         }
 
-        /* Premium Glass Cards */
-        .glass-card {
-            background: var(--glass);
-            backdrop-filter: blur(15px);
-            border: 1px solid var(--glass-border);
-            border-radius: 28px;
-            padding: 3rem;
-            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            height: 100%;
-            position: relative;
-            display: flex;
-            flex-direction: column;
+        /* Hero Section */
+        .hero-section {
+            padding: 220px 0 100px;
+            text-align: center;
+            background: radial-gradient(circle at center, rgba(0, 242, 255, 0.05) 0%, transparent 70%);
         }
 
-        .glass-card:hover {
-            transform: translateY(-15px) scale(1.02);
-            border-color: var(--primary);
-            box-shadow: 0 25px 50px rgba(0, 242, 255, 0.15);
-            background: rgba(255, 255, 255, 0.05);
-        }
-
-        .glass-card.is-elite {
-            border-color: #ffd700;
-            box-shadow: 0 0 30px rgba(255, 215, 0, 0.1);
-        }
-
-        .glass-card.is-elite:hover {
-            box-shadow: 0 0 50px rgba(255, 215, 0, 0.3);
-        }
-
-        /* Typography & Gradients */
         .title-font { font-family: 'Space Grotesk', sans-serif; letter-spacing: -0.03em; }
         .gradient-text {
-            background: linear-gradient(135deg, var(--primary), var(--secondary), var(--accent));
+            background: linear-gradient(135deg, var(--teal), var(--blue), var(--pink));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             font-weight: 800;
         }
 
-        /* Buttons */
+        /* Carousel & Stack Flow */
+        .marketplace-container {
+            padding: 100px 0;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .workflow-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 150px;
+            padding: 0 20px;
+        }
+
+        .workflow-item {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .workflow-item.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .workflow-item:nth-child(even) { flex-direction: row-reverse; }
+
+        /* Interactive Squirkle Card */
+        .squirkle-card {
+            width: 500px;
+            height: 500px;
+            perspective: 1500px;
+            cursor: pointer;
+        }
+
+        .squirkle-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transform-style: preserve-3d;
+        }
+
+        .squirkle-card:hover .squirkle-inner {
+            transform: rotateY(180deg);
+        }
+
+        .squirkle-front, .squirkle-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 60px; /* Squirkle effect */
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 3rem;
+            text-align: center;
+        }
+
+        .squirkle-back {
+            transform: rotateY(180deg);
+            background: rgba(255, 255, 255, 0.05);
+            border-color: var(--teal);
+        }
+
+        /* Content Styles */
+        .workflow-info { flex: 1; }
+        .price-tag { font-size: 3rem; font-weight: 800; color: var(--teal); margin: 1.5rem 0; }
         .btn-premium {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            background: linear-gradient(135deg, var(--teal), var(--blue));
             border: none;
             color: white;
             padding: 1.2rem 2.5rem;
@@ -94,60 +144,37 @@
             letter-spacing: 1.5px;
             cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: 0 10px 20px rgba(112, 0, 255, 0.2);
+            box-shadow: 0 10px 20px rgba(0, 242, 255, 0.2);
             display: inline-flex;
             align-items: center;
-            justify-content: center;
             gap: 0.8rem;
         }
 
         .btn-premium:hover {
             transform: translateY(-3px);
             box-shadow: 0 15px 35px rgba(0, 242, 255, 0.4);
-            color: white;
         }
 
-        /* Hero Section */
-        .hero-section {
-            padding: 200px 0 120px;
+        /* Ultimate Bundle Section */
+        .ultimate-bundle {
+            background: linear-gradient(180deg, transparent, rgba(112, 0, 255, 0.1));
+            padding: 150px 0;
             text-align: center;
-            background: radial-gradient(circle at center, rgba(112, 0, 255, 0.05) 0%, transparent 70%);
+            border-top: 1px solid var(--glass-border);
         }
 
-        .hero-badge {
-            background: rgba(0, 242, 255, 0.08);
-            border: 1px solid var(--primary);
-            color: var(--primary);
-            padding: 0.6rem 1.8rem;
-            border-radius: 100px;
-            font-size: 0.85rem;
-            font-weight: 700;
-            display: inline-block;
-            margin-bottom: 2.5rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        /* Grid Layout */
-        .grid-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
-            gap: 3rem;
-            padding: 4rem 0;
-        }
-
-        /* Glowing Orb Assistant */
+        /* AI Assistant Orb */
         #ai-orb {
             position: fixed;
             bottom: 50px;
             right: 50px;
             width: 80px;
             height: 80px;
-            background: radial-gradient(circle at 30% 30%, var(--primary), var(--secondary), var(--accent));
+            background: radial-gradient(circle at 30% 30%, var(--teal), var(--blue), var(--pink));
             border-radius: 50%;
             cursor: pointer;
             z-index: 2000;
-            box-shadow: 0 0 40px var(--primary);
+            box-shadow: 0 0 40px var(--teal);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -155,8 +182,8 @@
         }
 
         @keyframes orb-pulse {
-            0%, 100% { transform: translateY(0) scale(1); box-shadow: 0 0 40px var(--primary); }
-            50% { transform: translateY(-20px) scale(1.1); box-shadow: 0 0 70px var(--accent); }
+            0%, 100% { transform: translateY(0) scale(1); box-shadow: 0 0 40px var(--teal); }
+            50% { transform: translateY(-20px) scale(1.1); box-shadow: 0 0 70px var(--pink); }
         }
 
         .chat-panel {
@@ -165,7 +192,7 @@
             right: 50px;
             width: 420px;
             height: 650px;
-            background: rgba(5, 5, 5, 0.85);
+            background: rgba(5, 5, 5, 0.9);
             backdrop-filter: blur(40px);
             border: 1px solid var(--glass-border);
             border-radius: 35px;
@@ -173,12 +200,10 @@
             flex-direction: column;
             z-index: 2000;
             box-shadow: 0 40px 80px rgba(0,0,0,0.9);
-            overflow: hidden;
         }
 
         .chat-header {
             padding: 2rem;
-            background: linear-gradient(90deg, rgba(0, 242, 255, 0.1), rgba(112, 0, 255, 0.1));
             border-bottom: 1px solid var(--glass-border);
             display: flex;
             align-items: center;
@@ -199,28 +224,12 @@
             border-radius: 24px;
             max-width: 85%;
             font-size: 0.95rem;
-            line-height: 1.5;
         }
 
-        .message.ai {
-            background: rgba(255,255,255,0.05);
-            align-self: flex-start;
-            border-bottom-left-radius: 5px;
-            border: 1px solid var(--glass-border);
-        }
+        .message.ai { background: rgba(255,255,255,0.05); align-self: flex-start; border-bottom-left-radius: 5px; }
+        .message.user { background: linear-gradient(135deg, var(--teal), var(--blue)); align-self: flex-end; border-bottom-right-radius: 5px; }
 
-        .message.user {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            align-self: flex-end;
-            border-bottom-right-radius: 5px;
-            color: white;
-        }
-
-        .chat-input-area {
-            padding: 2rem;
-            background: rgba(0,0,0,0.3);
-        }
-
+        .chat-input-area { padding: 2rem; border-top: 1px solid var(--glass-border); }
         .chat-input-area input {
             width: 100%;
             background: rgba(255,255,255,0.05);
@@ -229,28 +238,6 @@
             padding: 1.2rem 2rem;
             color: white;
             outline: none;
-            transition: border-color 0.3s;
-        }
-
-        .chat-input-area input:focus { border-color: var(--primary); }
-
-        /* Pricing & Tags */
-        .price-tag { font-size: 2.5rem; font-weight: 800; color: var(--primary); margin: 2rem 0; }
-        .tag-pill {
-            background: rgba(255,255,255,0.05);
-            padding: 0.4rem 1rem;
-            border-radius: 100px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            border: 1px solid var(--glass-border);
-            color: var(--primary);
-        }
-
-        footer {
-            padding: 80px 0;
-            border-top: 1px solid var(--glass-border);
-            text-align: center;
-            background: rgba(0,0,0,0.5);
         }
     </style>
 </head>
@@ -261,77 +248,121 @@
         <div class="container is-flex is-justify-content-between is-align-items-center px-6">
             <div class="is-flex is-align-items-center gap-3">
                 <i data-lucide="shield-check" class="has-text-info" size="32"></i>
-                <span class="title-font is-size-3 has-text-weight-bold tracking-tighter">AUTOMATION EMPIRE</span>
+                <span class="title-font is-size-3 has-text-weight-bold">AUTOMATION EMPIRE</span>
             </div>
             <div class="is-hidden-mobile">
-                <a href="#collections" class="mx-5 has-text-white has-text-weight-medium">Collections</a>
-                <a href="#omni-tool" class="mx-5 has-text-white has-text-weight-medium">Omni-Tool</a>
-                <a href="#philosophy" class="mx-5 has-text-white has-text-weight-medium">Philosophy</a>
+                <a href="#marketplace" class="mx-5 has-text-white">Marketplace</a>
+                <a href="#ultimate" class="mx-5 has-text-white">Ultimate Bundle</a>
                 <button class="btn-premium ml-6 is-small">Sovereign Portal</button>
             </div>
         </div>
     </nav>
 
     <section class="hero-section container px-6">
-        <div class="hero-badge">Post-January 2026 Agentic Standard</div>
         <h1 class="title-font is-size-1-desktop is-size-2-mobile mb-6">
-            Architecting the <br>
-            <span class="gradient-text">Sovereign Future</span>
+            The Sovereign <br>
+            <span class="gradient-text">Automation Marketplace</span>
         </h1>
-        <p class="is-size-4 has-text-grey-light mb-6" style="max-width: 900px; margin: 0 auto; font-weight: 300;">
-            We don't sell templates. We deploy <strong>Sovereign Systems</strong>. 
-            10,000+ battle-tested, production-proven n8n workflows designed for autonomous business excellence.
+        <p class="is-size-4 has-text-grey-light mb-6" style="max-width: 900px; margin: 0 auto;">
+            Explore our granular library of 10,000+ premium n8n workflows. 
+            Individually architected for mission-critical autonomous operations.
         </p>
-        <div class="buttons is-centered mt-6">
-            <a href="#collections" class="btn-premium">
-                <span>Deploy Your Empire</span>
-                <i data-lucide="arrow-right"></i>
-            </a>
-        </div>
     </section>
 
-    <section id="collections" class="container px-6 py-6">
-        <div class="has-text-centered mb-6">
-            <h2 class="title-font is-size-2 mb-3">Premium Master Suites</h2>
-            <p class="has-text-grey is-size-5">Curated 6-pack bundles for mission-critical operations.</p>
+    <div class="marketplace-container" id="marketplace">
+        <div class="workflow-stack">
+            <!-- Item 1: Omni-Tool -->
+            <div class="workflow-item">
+                <div class="squirkle-card">
+                    <div class="squirkle-inner">
+                        <div class="squirkle-front">
+                            <i data-lucide="cpu" size="80" class="has-text-info mb-4"></i>
+                            <h3 class="title-font is-size-3">Empire Omni-Tool</h3>
+                            <p class="has-text-grey">Hover to see technical specs</p>
+                        </div>
+                        <div class="squirkle-back">
+                            <h4 class="title-font is-size-4 mb-4">Technical Specs</h4>
+                            <ul class="has-text-left is-size-6">
+                                <li>• Ultimate MCP Server Integration</li>
+                                <li>• 50+ Unified API Tools</li>
+                                <li>• Nvidia Nemotron Orchestration</li>
+                                <li>• Global Error Handling</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="workflow-info">
+                    <h2 class="title-font is-size-2 mb-4">Empire Omni-Tool</h2>
+                    <p class="is-size-5 has-text-grey-light">The crown jewel of agentic AI. A single workflow that provides unified access to web search, file processing, and dozens of APIs.</p>
+                    <div class="price-tag">$599.00</div>
+                    <div id="paypal-button-omni"></div>
+                </div>
+            </div>
+
+            <!-- Item 2: Shopify Marketing -->
+            <div class="workflow-item">
+                <div class="squirkle-card">
+                    <div class="squirkle-inner">
+                        <div class="squirkle-front">
+                            <i data-lucide="shopping-cart" size="80" class="has-text-primary mb-4"></i>
+                            <h3 class="title-font is-size-3">Shopify AI Engine</h3>
+                            <p class="has-text-grey">Hover to see related items</p>
+                        </div>
+                        <div class="squirkle-back">
+                            <h4 class="title-font is-size-4 mb-4">Related Workflows</h4>
+                            <ul class="has-text-left is-size-6">
+                                <li>• Amazon Inventory Agent</li>
+                                <li>• Etsy SEO Optimizer</li>
+                                <li>• Multi-Channel Sync</li>
+                                <li>• Customer Support Bot</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="workflow-info">
+                    <h2 class="title-font is-size-2 mb-4">Shopify AI Marketing Engine</h2>
+                    <p class="is-size-5 has-text-grey-light">Automatically generates marketing copy and professional product visuals the moment a new product is added to your store.</p>
+                    <div class="price-tag">$149.00</div>
+                    <div id="paypal-button-shopify"></div>
+                </div>
+            </div>
+
+            <!-- Item 3: Lead Gen Matrix -->
+            <div class="workflow-item">
+                <div class="squirkle-card">
+                    <div class="squirkle-inner">
+                        <div class="squirkle-front">
+                            <i data-lucide="users" size="80" class="has-text-success mb-4"></i>
+                            <h3 class="title-font is-size-3">Lead Gen Matrix</h3>
+                            <p class="has-text-grey">Hover to see features</p>
+                        </div>
+                        <div class="squirkle-back">
+                            <h4 class="title-font is-size-4 mb-4">Core Features</h4>
+                            <ul class="has-text-left is-size-6">
+                                <li>• LinkedIn Scraper Integration</li>
+                                <li>• AI Email Copywriter</li>
+                                <li>• Automated CRM Sync</li>
+                                <li>• Lead Scoring Logic</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="workflow-info">
+                    <h2 class="title-font is-size-2 mb-4">Sales & Lead Gen Matrix</h2>
+                    <p class="is-size-5 has-text-grey-light">Autonomous lead sourcing and nurturing. Build a high-performance sales funnel that runs 24/7 without human intervention.</p>
+                    <div class="price-tag">$199.00</div>
+                    <div id="paypal-button-leadgen"></div>
+                </div>
+            </div>
         </div>
+    </div>
 
-        <div class="grid-container">
-            <!-- Collection 1 -->
-            <div class="glass-card">
-                <div class="is-flex gap-2 mb-4">
-                    <span class="tag-pill">E-commerce</span>
-                    <span class="tag-pill">Global Retail</span>
-                </div>
-                <h3 class="title-font is-size-3 mb-4">E-commerce Alpha Suite</h3>
-                <p class="has-text-grey-light is-size-6 flex-grow-1">The definitive automation stack for global retail. Includes Shopify marketing engines, Amazon inventory agents, and multi-channel sync systems.</p>
-                <div class="price-tag">$599.00</div>
-                <div id="paypal-button-ecommerce"></div>
-            </div>
-
-            <!-- Collection 2 -->
-            <div class="glass-card">
-                <div class="is-flex gap-2 mb-4">
-                    <span class="tag-pill">Sales</span>
-                    <span class="tag-pill">Lead Gen</span>
-                </div>
-                <h3 class="title-font is-size-3 mb-4">Sales & Lead Gen Matrix</h3>
-                <p class="has-text-grey-light is-size-6 flex-grow-1">Autonomous lead sourcing and nurturing. Integrates LinkedIn scrapers, AI copywriters, and automated CRM management agents.</p>
-                <div class="price-tag">$699.00</div>
-                <div id="paypal-button-sales"></div>
-            </div>
-
-            <!-- Collection 3: Omni-Tool -->
-            <div class="glass-card is-elite" id="omni-tool">
-                <div class="is-flex gap-2 mb-4">
-                    <span class="tag-pill" style="color: #ffd700; border-color: #ffd700;">Elite Tier</span>
-                    <span class="tag-pill">Omni-Tool</span>
-                </div>
-                <h3 class="title-font is-size-3 mb-4">Empire Omni-Tool</h3>
-                <p class="has-text-grey-light is-size-6 flex-grow-1">The crown jewel. Integrated Ultimate MCP Server with 50+ technical capabilities. The only system your business will ever need.</p>
-                <div class="price-tag" style="color: #ffd700;">$899.00</div>
-                <div id="paypal-button-omni"></div>
-            </div>
+    <section id="ultimate" class="ultimate-bundle">
+        <div class="container px-6">
+            <h2 class="title-font is-size-1 mb-6">Professional All-In-One <br><span class="gradient-text">Ultimate Master Bundle</span></h2>
+            <p class="is-size-4 has-text-grey-light mb-6">Get the entire 10,000+ workflow library, including all Elite Tier tools and future updates.</p>
+            <div class="price-tag" style="font-size: 4rem;">$1,499.00</div>
+            <div id="paypal-button-ultimate" style="max-width: 400px; margin: 0 auto;"></div>
         </div>
     </section>
 
@@ -342,34 +373,23 @@
 
     <div class="chat-panel" id="chat-panel">
         <div class="chat-header">
-            <div style="width: 50px; height: 50px; background: radial-gradient(circle, var(--primary), var(--secondary)); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+            <div style="width: 50px; height: 50px; background: radial-gradient(circle, var(--teal), var(--blue)); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
                 <i data-lucide="bot" class="has-text-white"></i>
             </div>
             <div>
-                <p class="has-text-weight-bold is-size-5">Empire Assistant</p>
-                <p class="is-size-7 has-text-grey">Powered by Nvidia Nemotron-3</p>
+                <p class="has-text-weight-bold">Empire Assistant</p>
+                <p class="is-size-7 has-text-grey">Nvidia Nemotron-3 Engine</p>
             </div>
         </div>
         <div class="chat-messages" id="chat-messages">
             <div class="message ai">
-                Greetings. I am the Empire's onboarding specialist. Are you seeking to automate a specific industry, or are you ready to deploy the Omni-Tool?
+                Greetings. I am the Empire's onboarding specialist. Are you seeking a specific granular workflow, or are you ready for the Ultimate Master Bundle?
             </div>
         </div>
         <div class="chat-input-area">
             <input type="text" placeholder="Describe your operational needs..." id="chat-input">
         </div>
     </div>
-
-    <footer>
-        <div class="container px-6">
-            <div class="is-flex is-justify-content-center gap-3 mb-4">
-                <i data-lucide="shield-check" class="has-text-info"></i>
-                <span class="title-font has-text-weight-bold">AUTOMATION EMPIRE</span>
-            </div>
-            <p class="has-text-grey">Architected by Miss Casey Jay Topojani</p>
-            <p class="has-text-grey-dark is-size-7 mt-4">© 2026 Sovereign Agentic Systems. All Rights Reserved.</p>
-        </div>
-    </footer>
 
     <script>
         // Initialize Lucide Icons
@@ -383,14 +403,27 @@
             states : {
                 "default-state": {
                     gradients: [
-                        ['#030303', '#0a0a2e'],
-                        ['#0a0a2e', '#1a0a3e'],
-                        ['#1a0a3e', '#030303']
+                        ['#030303', '#004d4d'],
+                        ['#004d4d', '#001a33'],
+                        ['#001a33', '#4d004d'],
+                        ['#4d004d', '#030303']
                     ],
-                    transitionSpeed: 7000
+                    transitionSpeed: 5000
                 }
             }
         });
+
+        // Scroll Reveal Logic
+        const observerOptions = { threshold: 0.2 };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.workflow-item').forEach(item => observer.observe(item));
 
         // Chat Logic
         const orb = document.getElementById('ai-orb');
@@ -410,7 +443,7 @@
                 messages.scrollTop = messages.scrollHeight;
 
                 setTimeout(() => {
-                    messages.innerHTML += `<div class="message ai">Analyzing your request against our 10,000+ workflow library... Based on your input, I recommend the <strong>Empire Omni-Tool</strong> for maximum sovereignty. Shall I direct you to the license acquisition?</div>`;
+                    messages.innerHTML += `<div class="message ai">Analyzing your request... Based on your needs, I recommend the <strong>Empire Omni-Tool</strong> for maximum sovereignty. Shall I direct you to the license acquisition?</div>`;
                     messages.scrollTop = messages.scrollHeight;
                 }, 1200);
             }
@@ -424,22 +457,15 @@
                     purchase_units: [{ description: desc, amount: { currency_code: 'USD', value: amount } }]
                 }),
                 onApprove: (data, actions) => actions.order.capture().then(details => {
-                    alert('Transaction completed by ' + details.payer.name.given_name + '! Your Sovereign System is ready for deployment.');
+                    alert('Transaction completed by ' + details.payer.name.given_name + '! Your Sovereign System is ready.');
                 })
             }).render(id);
         }
 
-        initPayPal('#paypal-button-ecommerce', '599.00', 'E-commerce Alpha Suite (6-Pack)');
-        initPayPal('#paypal-button-sales', '699.00', 'Sales & Lead Gen Matrix (6-Pack)');
-        initPayPal('#paypal-button-omni', '899.00', 'Empire Omni-Tool (Elite Tier)');
-
-        // Smart Style Logic
-        const urlParams = new URLSearchParams(window.location.search);
-        const industry = urlParams.get('industry');
-        if (industry) {
-            const heroTitle = document.querySelector('.hero-section h1');
-            heroTitle.innerHTML = `The Sovereign Era of <br><span class="gradient-text">${industry.charAt(0).toUpperCase() + industry.slice(1)} Automation</span>`;
-        }
+        initPayPal('#paypal-button-omni', '599.00', 'Empire Omni-Tool (Elite Tier)');
+        initPayPal('#paypal-button-shopify', '149.00', 'Shopify AI Marketing Engine');
+        initPayPal('#paypal-button-leadgen', '199.00', 'Sales & Lead Gen Matrix');
+        initPayPal('#paypal-button-ultimate', '1499.00', 'Professional All-In-One Ultimate Master Bundle');
     </script>
 </body>
 </html>
